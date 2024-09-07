@@ -1,0 +1,71 @@
+body {
+    background-color: #F5DEB3;
+    color: #044155;
+    text-align: center;
+}
+h1 {
+  font-family: "Baskervville SC", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+img {
+    height: 300px;
+    border-radius:10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);
+}
+body::before, body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100px; /* Largeur des bandes colorées */
+    background-color: #033141; /* Couleur des bandes */
+  }
+  
+  body::before {
+    left: 0; /* Bord gauche */
+  }
+  
+  body::after {
+    right: 0; /* Bord droit */
+    background-color: #033141; /* Couleur différente pour le bord droit */
+  }
+#BTN {
+    padding: 100px;
+}
+button {
+    padding: 10px;
+    border-radius: 9px;
+    background-color: #033141;
+    color: #F5DEB3;
+    font-family: "Baskervville SC", serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: x-large;
+    cursor: pointer;
+}
+/* Pour les écrans très petits */
+@media (max-width: 480px) {
+    body::before, body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 10px; /* Largeur des bandes colorées */
+        background-color: #033141; /* Couleur des bandes */
+      }
+      
+      body::before {
+        left: 0; /* Bord gauche */
+      }
+      
+      body::after {
+        right: 0; /* Bord droit */
+        background-color: #033141; /* Couleur différente pour le bord droit */
+      }
+      img {
+        height: 200px;
+        border-radius:10px;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);
+    }
+} 

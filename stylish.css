@@ -1,0 +1,85 @@
+body {
+    background-color: #F5DEB3;
+    color: #044155;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+body::before, body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100px; /* Largeur des bandes colorées */
+    background-color: #033141; /* Couleur des bandes */
+}
+  
+  body::before {
+    left: 0; /* Bord gauche */
+}
+  
+  body::after {
+    right: 0; /* Bord droit */
+    background-color: #033141; /* Couleur différente pour le bord droit */
+}
+#THEM {
+  margin-top: 30px;
+  font-size: xx-large;
+  font-family: "Baskervville SC", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+#banner {
+  width: 70%;
+  height: 300px;
+  border-radius: 9px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);
+}
+#divban {
+  display: flex;
+  justify-content: center;
+}
+#start {
+  padding: 8px;
+  border-radius: 9px;
+  background-color: #044155;
+  color: #F5DEB3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Pour les écrans très petits */
+@media (max-width: 480px) {
+    body::before, body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 10px; /* Largeur des bandes colorées */
+        background-color: #033141; /* Couleur des bandes */
+      }
+      
+      body::before {
+        left: 0; /* Bord gauche */
+      }
+      
+      body::after {
+        right: 0; /* Bord droit */
+        background-color: #033141; /* Couleur différente pour le bord droit */
+      }
+      img {
+        height: 200px;
+        border-radius:10px;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);
+    }
+} 
