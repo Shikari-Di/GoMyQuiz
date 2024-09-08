@@ -81,6 +81,7 @@ const questions = [
 
 let currentQuestionIndex = 0;
 let userResponses = [];
+let score = 0;
 
 const questionElement = document.getElementById('question');
 const choicesElement = document.getElementById('choices');
@@ -93,21 +94,41 @@ function displayQuestion() {
     
     choicesElement.innerHTML = ''; // Vider les choix précédents
 
-    currentQuestion.choices.forEach((choice, index) => {
+    currentQuestion.choices.forEach(choice => {
         const li = document.createElement('li');
-        const button = document.createElement('button');
-        button.textContent = choice;
-        button.addEventListener('click', () => handleChoiceSelection(choice));
-        li.appendChild(button);
+        li.textContent = choice;
+        li.classList.add('choice-item'); // Ajout d'une classe pour le style
+        li.addEventListener('click', () => handleChoiceSelection(choice, li));
         choicesElement.appendChild(li);
     });
+
+    nextButton.style.display = 'none'; // Cacher le bouton suivant jusqu'à la sélection
 }
 
 // Fonction qui gère la sélection de l'utilisateur
-function handleChoiceSelection(choice) {
+function handleChoiceSelection(choice, listItem) {
+    // Marquer la réponse sélectionnée
     userResponses[currentQuestionIndex] = choice;
-    nextButton.disabled = false; // Activer le bouton suivant
+
+    const currentQuestion = questions[currentQuestionIndex];
+    const choices = document.querySelectorAll('#choices .choice-item');
+    
+    choices.forEach(choiceItem => {
+        if (choiceItem.textContent === currentQuestion.correctAnswer) {
+            choiceItem.style.backgroundColor = '#4CAF50'; // Vert pour correct
+        } else if (choiceItem.textContent === choice) {
+            choiceItem.style.backgroundColor = '#F44336'; // Rouge pour incorrect
+        }
+    });
+
+    // Mettre à jour le score si la réponse est correcte
+    if (choice === currentQuestion.correctAnswer) {
+        score++;
+    }
+
+    nextButton.style.display = 'block'; // Afficher le bouton suivant
 }
+
 
 // Fonction pour aller à la question suivante
 function goToNextQuestion() {
@@ -115,21 +136,23 @@ function goToNextQuestion() {
 
     if (currentQuestionIndex < questions.length) {
         displayQuestion();
-        nextButton.disabled = true; // Désactiver jusqu'à la prochaine sélection
+        nextButton.style.display = 'none'; // Cacher jusqu'à la sélection
     } else {
         // Afficher les résultats
         showResults();
     }
 }
 
+
 // Afficher les résultats
 function showResults() {
-    questionElement.textContent = "Quiz terminé ! Voici vos réponses :";
+    questionElement.textContent = `Quiz terminé ! Votre score est ${score} sur ${questions.length}.`;
     choicesElement.innerHTML = '';
 
     questions.forEach((question, index) => {
         const li = document.createElement('li');
-        li.textContent = `${question.question} - Votre réponse : ${userResponses[index]}`;
+        const correct = userResponses[index] === question.correctAnswer ? 'Correct' : 'Incorrect';
+        li.textContent = `${question.question} - Votre réponse : ${userResponses[index]} (${correct})`;
         choicesElement.appendChild(li);
     });
 
