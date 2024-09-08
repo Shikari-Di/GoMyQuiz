@@ -44,6 +44,7 @@ body::before, body::after {
   border-radius: 9px;
   background-color: #044155;
   color: #F5DEB3;
+  cursor: pointer;
 }
 
 
@@ -77,9 +78,11 @@ body::before, body::after {
         right: 0; /* Bord droit */
         background-color: #033141; /* Couleur différente pour le bord droit */
       }
-      img {
+      #banner {
         height: 200px;
-        border-radius:10px;
-        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);
-    }
+        width: 400px;
+      }
+      #THEM {
+        padding: 10px;
+      }
 } 

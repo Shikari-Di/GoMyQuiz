@@ -1,0 +1,109 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+body {
+    font-family: "Baskervville SC", serif;
+    font-weight: 900;
+    font-style: normal;
+    background-image: url('IMG/TECHGIF.gif'); /* Chemin du GIF */
+    background-size: cover; /* permettre au GIF de couvrir toute la page */
+    background-repeat: no-repeat; /* eviter la répétition du GIF */
+    background-position: center center; /* centrer le GIF */
+    background-attachment: fixed; /* fixer le GIF pour qu'il reste en place lors du défilement */
+}
+#quiz-container {
+    max-width: 700px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.question-box {
+    background-color: #2d7891;
+    padding: 20px;
+    border-radius: 8px;
+    color: #6b562f;
+    margin-bottom: 20px;
+}
+
+#question {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* Style des choix avec fond mais sans apparence de bouton */
+#choices {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#choices li {
+    background-color: #87a1eb; /* Couleur de fond des choix */
+    color: #044155; /* Couleur du texte */
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left; /* Alignement du texte */
+    font-size: 1rem; /* Taille du texte */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid transparent; /* Ajouter une bordure pour le focus */
+}
+#choices li:hover {
+    background-color: #8bff07;
+}
+#choices li:focus {
+    outline: none; /* Retirer le contour par défaut */
+    border: 1px solid #000000; /* Ajouter une bordure colorée */
+}
+
+#next-question {
+    background-color: #044155;
+    color: #F5DEB3;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#next-question:disabled {
+    background-color: #888888;
+    cursor: not-allowed;
+}
+
+#next-question:hover:enabled {
+    background-color: #033141;
+}
+
+/* Pour petits écrans */
+@media (max-width: 480px) {
+    #quiz-container {
+        margin: 50px 20px;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    #question {
+        font-size: 1.2rem;
+    }
+
+    #next-question {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
