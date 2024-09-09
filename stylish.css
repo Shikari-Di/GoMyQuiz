@@ -86,3 +86,27 @@ body::before, body::after {
         padding: 10px;
       }
 } 
+/* Pour les écrans de 767px ou moins */
+@media (max-width: 767px) {
+  /* Styles globaux */
+  body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+  #banner {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+  }
+  #THEM {
+    font-size: x-large;
+    padding: 10px;
+  }
+  #start {
+    width: 80%;
+    font-size: large;
+    padding: 10px;
+  }
+}

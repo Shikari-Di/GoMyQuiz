@@ -107,3 +107,37 @@ h1 {
         padding: 8px 16px;
     }
 }
+/* Pour les écrans de 767px ou moins */
+@media (max-width: 767px) {
+    /* Styles globaux */
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+    }
+    #quiz-container {
+        margin: 50px auto;
+        padding: 10px;
+        width: 90%;
+      }
+    
+      h2 {
+        font-size: 1.5rem;
+      }
+    
+      #choices li {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+    
+      #next-question {
+        width: 100%;
+        padding: 10px;
+        font-size: large;
+      }
+    
+      body::before, body::after {
+        width: 20px; /* Ajuster la largeur des bandes colorées */
+      }
+}  
